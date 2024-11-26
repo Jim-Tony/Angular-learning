@@ -2,7 +2,10 @@
 <main>
   <ul id="users">
     <li *ngFor="let item of usersList">
-      <app-user [user] = "item"/>
+      <app-user 
+        [user] = "item"
+        (select)="onSelectedUserProfile($event)"
+      />
     </li>
   </ul>
 </main>
