@@ -1,5 +1,9 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-
+type userObjectType = {
+    id:string;
+    name:string;
+    avatar:string;
+  };
 @Component({
   selector: 'app-user',
   standalone: true,
@@ -8,8 +12,9 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrl: './user.component.css'
 })
 export class UserComponent {
+  
   @Output() select = new EventEmitter();
-  @Input() user:any;
+  @Input() user!:userObjectType;
 
   get userName() {
     return this.user.name;
