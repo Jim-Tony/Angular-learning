@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { TaskComponent } from "./task/task.component";
-
+import { dummyTasks } from './dummy-tasks';
 @Component({
   selector: 'app-tasks',
   standalone: true,
@@ -9,5 +9,7 @@ import { TaskComponent } from "./task/task.component";
   styleUrl: './tasks.component.css'
 })
 export class TasksComponent {
-  @Input({required:true}) userName?:string
+  @Input({required:true}) userName?:string;
+  @Input({required:true}) id?:string;
+  tasks = dummyTasks;
 }

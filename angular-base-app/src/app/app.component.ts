@@ -15,8 +15,10 @@ import { TasksComponent } from "./tasks/tasks.component";
 export class AppComponent {
   usersList = DUMMY_USERS;
   userName?:string = '';
+  userId?:string = '';
   onSelectedUserProfile(user:any){
     console.log(user);
     this.userName = user.name;
+    this.userId = user.id;
   }
 }

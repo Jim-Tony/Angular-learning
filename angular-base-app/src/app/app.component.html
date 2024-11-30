@@ -9,7 +9,7 @@
     </li>
   </ul>
   @if(userName !== ''){
-    <app-tasks [userName]="userName"/>
+    <app-tasks [userName]="userName" [id]="userId"/>
   }
   @else {
     <p>Please select a user!</p>
