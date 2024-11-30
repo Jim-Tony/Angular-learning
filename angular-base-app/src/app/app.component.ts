@@ -4,6 +4,7 @@ import { UserComponent } from "./user/user.component";
 import { CommonModule } from '@angular/common';
 import { DUMMY_USERS } from './dummy-users';
 import { TasksComponent } from "./tasks/tasks.component";
+import { userObjectType } from './user/user.model';
 
 @Component({
   selector: 'app-root',
@@ -14,11 +15,9 @@ import { TasksComponent } from "./tasks/tasks.component";
 })
 export class AppComponent {
   usersList = DUMMY_USERS;
-  userName?:string = '';
-  userId?:string = '';
-  onSelectedUserProfile(user:any){
-    console.log(user);
-    this.userName = user.name;
-    this.userId = user.id;
+  selectedUser?:userObjectType;
+  onSelectedUserProfile(user:userObjectType){
+    // console.log(user);
+    this.selectedUser = user;
   }
 }
