@@ -1,5 +1,5 @@
 @if (isTaskNeedToAdd) {
-    <app-new-task (closeForm)="onCloseForm()"/>
+    <app-new-task (closeForm)="onCloseForm()" (submitForm)="onSubmitTaskForm($event)"/>
 }
 <section id="tasks">
     <header>

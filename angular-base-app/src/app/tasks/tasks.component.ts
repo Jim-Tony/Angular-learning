@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { TaskComponent } from "./task/task.component";
 import { NewTaskComponent } from './new-task/new-task.component';
 import { dummyTasks } from './dummy-tasks';
+import { newTaskType } from './task/task.model';
 @Component({
   selector: 'app-tasks',
   standalone: true,
@@ -11,7 +12,7 @@ import { dummyTasks } from './dummy-tasks';
 })
 export class TasksComponent {
   @Input({required:true}) userName?:string;
-  @Input({required:true}) id?:string;
+  @Input({required:true}) id!:string;
   isTaskNeedToAdd = false;
   tasks = dummyTasks;
 
@@ -25,5 +26,17 @@ export class TasksComponent {
 
   onCloseForm() {
     this.isTaskNeedToAdd = false;
+  }
+
+  onSubmitTaskForm(task:newTaskType) {
+    this.isTaskNeedToAdd = false;
+    let newTask = {
+      id: new Date().getTime().toString(),
+      userId: this.id,
+      title : task.title,
+      summary : task.summary,
+      dueDate : task.date
+    }
+    this.tasks.push(newTask);
   }
 }
