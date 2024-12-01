@@ -1,5 +1,5 @@
 <div>
-    <button [ngClass]="{'active': selected}" (click)="onSelectedUser()">
+    <button [class.active] = "selected" (click)="onSelectedUser()">
         <img [src]="imagePath"/>
         <span>
             {{ userName }}
