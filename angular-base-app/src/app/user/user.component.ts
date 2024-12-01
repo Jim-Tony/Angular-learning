@@ -8,7 +8,7 @@ import {userObjectType} from './user.model';
   styleUrl: './user.component.css'
 })
 export class UserComponent {
-  
+  //Will look on directives in a separate section
   @Output() select = new EventEmitter();
   @Input() user!:userObjectType;
   @Input() selected?:boolean;
