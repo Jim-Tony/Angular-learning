@@ -22,4 +22,8 @@ export class TasksComponent {
   onAddTask() {
     this.isTaskNeedToAdd = true;
   }
+
+  onCloseForm() {
+    this.isTaskNeedToAdd = false;
+  }
 }
