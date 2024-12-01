@@ -10,5 +10,4 @@ import { taskType } from './task.model';
 
 export class TaskComponent {
   @Input({required:true}) task?:taskType;
-
 }
