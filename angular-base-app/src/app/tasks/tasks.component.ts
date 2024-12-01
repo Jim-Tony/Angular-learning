@@ -12,4 +12,7 @@ export class TasksComponent {
   @Input({required:true}) userName?:string;
   @Input({required:true}) id?:string;
   tasks = dummyTasks;
+  onCompleteTask(id:string){
+    this.tasks = this.tasks.filter(t=>t.id!==id);
+  }
 }
