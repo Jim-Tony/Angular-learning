@@ -1,6 +1,8 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, inject, Output, Input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { newTaskType } from '../task/task.model';
+import { TaskService } from '../task.service';
+import { identity } from 'rxjs';
 @Component({
   selector: 'app-new-task',
   standalone: true,
@@ -10,20 +12,22 @@ import { newTaskType } from '../task/task.model';
 })
 export class NewTaskComponent {
   @Output() closeForm = new EventEmitter();
-  @Output() submitForm = new EventEmitter<newTaskType>();
+  @Input() userId!:string
   enteredTitle = '';
   enteredSummary = '';
   enteredDate = '';
 
+  private taskService = inject(TaskService);
   onCloseForm() {
     this.closeForm.emit();
   }
 
   onCreateTask(){
-    this.submitForm.emit({
-      title : this.enteredTitle,
-      summary: this.enteredSummary,
+    this.taskService.onAddNewTask({
+      title :this.enteredTitle,
+      summary:this.enteredSummary,
       date:this.enteredDate
-    })
+    }, this.userId)
+    this.closeForm.emit();
   }
 }
