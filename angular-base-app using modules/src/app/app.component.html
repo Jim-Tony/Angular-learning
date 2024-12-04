@@ -1,0 +1,18 @@
+<app-header/>
+<main>
+  <ul id="users">
+    <li *ngFor="let item of usersList">
+      <app-user 
+        [user] = "item" 
+        (select)="onSelectedUserProfile($event)"
+        [selected] = "item.id === selectedUser?.id"
+      />
+    </li>
+  </ul>
+  @if(selectedUser?.name){
+    <app-tasks [userName]="selectedUser?.name" [userId]="selectedUser!.id"/>
+  }
+  @else {
+    <p>Please select a user!</p>
+  }
+</main>
